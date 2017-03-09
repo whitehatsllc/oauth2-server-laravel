@@ -17,12 +17,12 @@
         "illuminate/http": "5.1.* || 5.2.* || 5.3.*",
         "illuminate/support": "5.1.* || 5.2.* || 5.3.*",
         "illuminate/config": "5.1.* || 5.2.* || 5.3.*",
-        "whitehatsllc/oauth2-server": "1.*"
+        "whitehatsllc/league-oauth2-server": "1.*"
     },
     "repositories": [
         {
             "type": "git",
-            "url": "https://github.com/whitehatsllc/oauth2-server.git"
+            "url": "https://github.com/whitehatsllc/league-oauth2-server.git"
         }
     ],
     "require-dev": {
