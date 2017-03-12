@@ -13,9 +13,9 @@ namespace Whitehatsllc\OAuth2Server\Storage;
 
 use Carbon\Carbon;
 use Illuminate\Database\ConnectionResolverInterface as Resolver;
-use League\OAuth2\Server\Entity\ClientEntity;
-use League\OAuth2\Server\Entity\SessionEntity;
-use League\OAuth2\Server\Storage\ClientInterface;
+use Whitehatsleague\OAuth2\Server\Entity\ClientEntity;
+use Whitehatsleague\OAuth2\Server\Entity\SessionEntity;
+use Whitehatsleague\OAuth2\Server\Storage\ClientInterface;
 
 /**
  * This is the fluent client class.
@@ -72,7 +72,7 @@ class FluentClient extends AbstractFluentAdapter implements ClientInterface
      * @param string $redirectUri
      * @param string $grantType
      *
-     * @return null|\League\OAuth2\Server\Entity\ClientEntity
+     * @return null|\Whitehatsleague\OAuth2\Server\Entity\ClientEntity
      */
     public function get($clientId, $clientSecret = null, $redirectUri = null, $grantType = null)
     {
@@ -119,9 +119,9 @@ class FluentClient extends AbstractFluentAdapter implements ClientInterface
     /**
      * Get the client associated with a session.
      *
-     * @param  \League\OAuth2\Server\Entity\SessionEntity $session The session
+     * @param  \Whitehatsleague\OAuth2\Server\Entity\SessionEntity $session The session
      *
-     * @return null|\League\OAuth2\Server\Entity\ClientEntity
+     * @return null|\Whitehatsleague\OAuth2\Server\Entity\ClientEntity
      */
     public function getBySession(SessionEntity $session)
     {
@@ -164,7 +164,7 @@ class FluentClient extends AbstractFluentAdapter implements ClientInterface
      *
      * @param $result
      *
-     * @return \League\OAuth2\Server\Entity\ClientEntity
+     * @return \Whitehatsleague\OAuth2\Server\Entity\ClientEntity
      */
     protected function hydrateEntity($result)
     {

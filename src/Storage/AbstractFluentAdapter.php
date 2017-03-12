@@ -12,7 +12,7 @@
 namespace Whitehatsllc\OAuth2Server\Storage;
 
 use Illuminate\Database\ConnectionResolverInterface as Resolver;
-use League\OAuth2\Server\Storage\AbstractStorage;
+use Whitehatsleague\OAuth2\Server\Storage\AbstractStorage;
 
 /**
  * This is the abstract fluent adapter class.

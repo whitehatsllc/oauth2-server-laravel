@@ -13,12 +13,12 @@ namespace Whitehatsllc\OAuth2Server\Storage;
 
 use Illuminate\Contracts\Container\Container as Application;
 use Illuminate\Support\ServiceProvider;
-use League\OAuth2\Server\Storage\AccessTokenInterface;
-use League\OAuth2\Server\Storage\AuthCodeInterface;
-use League\OAuth2\Server\Storage\ClientInterface;
-use League\OAuth2\Server\Storage\RefreshTokenInterface;
-use League\OAuth2\Server\Storage\ScopeInterface;
-use League\OAuth2\Server\Storage\SessionInterface;
+use Whitehatsleague\OAuth2\Server\Storage\AccessTokenInterface;
+use Whitehatsleague\OAuth2\Server\Storage\AuthCodeInterface;
+use Whitehatsleague\OAuth2\Server\Storage\ClientInterface;
+use Whitehatsleague\OAuth2\Server\Storage\RefreshTokenInterface;
+use Whitehatsleague\OAuth2\Server\Storage\ScopeInterface;
+use Whitehatsleague\OAuth2\Server\Storage\SessionInterface;
 
 /**
  * This is the fluent storage service provider class.

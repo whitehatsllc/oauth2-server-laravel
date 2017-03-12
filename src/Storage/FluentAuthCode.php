@@ -12,9 +12,9 @@
 namespace Whitehatsllc\OAuth2Server\Storage;
 
 use Carbon\Carbon;
-use League\OAuth2\Server\Entity\AuthCodeEntity;
-use League\OAuth2\Server\Entity\ScopeEntity;
-use League\OAuth2\Server\Storage\AuthCodeInterface;
+use Whitehatsleague\OAuth2\Server\Entity\AuthCodeEntity;
+use Whitehatsleague\OAuth2\Server\Entity\ScopeEntity;
+use Whitehatsleague\OAuth2\Server\Storage\AuthCodeInterface;
 
 /**
  * This is the fluent auth code class.
@@ -29,7 +29,7 @@ class FluentAuthCode extends AbstractFluentAdapter implements AuthCodeInterface
      *
      * @param  string $code
      *
-     * @return \League\OAuth2\Server\Entity\AuthCodeEntity
+     * @return \Whitehatsleague\OAuth2\Server\Entity\AuthCodeEntity
      */
     public function get($code)
     {
@@ -51,9 +51,9 @@ class FluentAuthCode extends AbstractFluentAdapter implements AuthCodeInterface
     /**
      * Get the scopes for an access token.
      *
-     * @param \League\OAuth2\Server\Entity\AuthCodeEntity $token The auth code
+     * @param \Whitehatsleague\OAuth2\Server\Entity\AuthCodeEntity $token The auth code
      *
-     * @return array Array of \League\OAuth2\Server\Entity\ScopeEntity
+     * @return array Array of \Whitehatsleague\OAuth2\Server\Entity\ScopeEntity
      */
     public function getScopes(AuthCodeEntity $token)
     {
@@ -78,8 +78,8 @@ class FluentAuthCode extends AbstractFluentAdapter implements AuthCodeInterface
     /**
      * Associate a scope with an access token.
      *
-     * @param  \League\OAuth2\Server\Entity\AuthCodeEntity $token The auth code
-     * @param  \League\OAuth2\Server\Entity\ScopeEntity $scope The scope
+     * @param  \Whitehatsleague\OAuth2\Server\Entity\AuthCodeEntity $token The auth code
+     * @param  \Whitehatsleague\OAuth2\Server\Entity\ScopeEntity $scope The scope
      *
      * @return void
      */
@@ -96,7 +96,7 @@ class FluentAuthCode extends AbstractFluentAdapter implements AuthCodeInterface
     /**
      * Delete an access token.
      *
-     * @param  \League\OAuth2\Server\Entity\AuthCodeEntity $token The access token to delete
+     * @param  \Whitehatsleague\OAuth2\Server\Entity\AuthCodeEntity $token The access token to delete
      *
      * @return void
      */

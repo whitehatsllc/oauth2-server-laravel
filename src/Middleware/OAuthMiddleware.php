@@ -12,7 +12,7 @@
 namespace Whitehatsllc\OAuth2Server\Middleware;
 
 use Closure;
-use League\OAuth2\Server\Exception\InvalidScopeException;
+use Whitehatsleague\OAuth2\Server\Exception\InvalidScopeException;
 use Whitehatsllc\OAuth2Server\Authorizer;
 
 /**
@@ -55,7 +55,7 @@ class OAuthMiddleware
      * @param \Closure $next
      * @param string|null $scopesString
      *
-     * @throws \League\OAuth2\Server\Exception\InvalidScopeException
+     * @throws \Whitehatsleague\OAuth2\Server\Exception\InvalidScopeException
      *
      * @return mixed
      */
@@ -80,7 +80,7 @@ class OAuthMiddleware
      *
      * @param $scopes
      *
-     * @throws \League\OAuth2\Server\Exception\InvalidScopeException
+     * @throws \Whitehatsleague\OAuth2\Server\Exception\InvalidScopeException
      */
     public function validateScopes($scopes)
     {

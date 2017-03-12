@@ -12,7 +12,7 @@
 namespace Whitehatsllc\OAuth2Server\Middleware;
 
 use Closure;
-use League\OAuth2\Server\Exception\AccessDeniedException;
+use Whitehatsleague\OAuth2\Server\Exception\AccessDeniedException;
 use Whitehatsllc\OAuth2Server\Authorizer;
 
 /**
@@ -45,7 +45,7 @@ class OAuthClientOwnerMiddleware
      * @param \Illuminate\Http\Request $request
      * @param \Closure $next
      *
-     * @throws \League\OAuth2\Server\Exception\AccessDeniedException
+     * @throws \Whitehatsleague\OAuth2\Server\Exception\AccessDeniedException
      *
      * @return mixed
      */
