@@ -3,25 +3,26 @@
 /*
  * This file is part of OAuth 2.0 Laravel.
  *
- * (c) Luca Degasperi <packages@lucadegasperi.com>
+ * (c) whitehatsllc <info@whitehats.ae>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace LucaDegasperi\OAuth2Server\Facades;
+namespace Whitehatsllc\OAuth2Server\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * This is the authorizer facade class.
  *
- * @see \LucaDegasperi\OAuth2Server\Authorizer
+ * @see \Whitehatsllc\OAuth2Server\Authorizer
  *
- * @author Luca Degasperi <packages@lucadegasperi.com>
+ * @author whitehatsllc <info@whitehats.ae>
  */
 class Authorizer extends Facade
 {
+
     /**
      * Get the registered name of the component.
      *
@@ -31,4 +32,5 @@ class Authorizer extends Facade
     {
         return 'oauth2-server.authorizer';
     }
+
 }

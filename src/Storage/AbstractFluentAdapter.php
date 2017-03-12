@@ -3,13 +3,13 @@
 /*
  * This file is part of OAuth 2.0 Laravel.
  *
- * (c) Luca Degasperi <packages@lucadegasperi.com>
+ * (c) whitehatsllc <info@whitehats.ae>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace LucaDegasperi\OAuth2Server\Storage;
+namespace Whitehatsllc\OAuth2Server\Storage;
 
 use Illuminate\Database\ConnectionResolverInterface as Resolver;
 use League\OAuth2\Server\Storage\AbstractStorage;
@@ -17,7 +17,7 @@ use League\OAuth2\Server\Storage\AbstractStorage;
 /**
  * This is the abstract fluent adapter class.
  *
- * @author Luca Degasperi <packages@lucadegasperi.com>
+ * @author whitehatsllc <info@whitehats.ae>
  */
 abstract class AbstractFluentAdapter extends AbstractStorage
 {
