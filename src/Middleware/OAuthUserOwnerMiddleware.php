@@ -22,6 +22,7 @@ use Whitehatsllc\OAuth2Server\Authorizer;
  */
 class OAuthUserOwnerMiddleware
 {
+
     /**
      * The Authorizer instance.
      *
@@ -54,9 +55,11 @@ class OAuthUserOwnerMiddleware
         $this->authorizer->setRequest($request);
 
         if ($this->authorizer->getResourceOwnerType() !== 'user') {
-            throw new AccessDeniedException();
+            $AccessDeniedException = new AccessDeniedException();
+            abort($AccessDeniedException->httpStatusCode, $AccessDeniedException->errorMessage);
         }
 
         return $next($request);
     }
+
 }

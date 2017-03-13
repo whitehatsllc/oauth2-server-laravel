@@ -22,6 +22,7 @@ use Whitehatsllc\OAuth2Server\Authorizer;
  */
 class OAuthMiddleware
 {
+
     /**
      * The Authorizer instance.
      *
@@ -85,7 +86,9 @@ class OAuthMiddleware
     public function validateScopes($scopes)
     {
         if (!empty($scopes) && !$this->authorizer->hasScope($scopes)) {
-            throw new InvalidScopeException(implode(',', $scopes));
+            $InvalidScopeException = new InvalidScopeException(implode(',', $scopes));
+            abort($InvalidScopeException->httpStatusCode, $InvalidScopeException->errorMessage);
         }
     }
+
 }

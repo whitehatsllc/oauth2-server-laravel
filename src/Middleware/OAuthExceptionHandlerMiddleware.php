@@ -22,6 +22,7 @@ use Whitehatsleague\OAuth2\Server\Exception\OAuthException;
  */
 class OAuthExceptionHandlerMiddleware
 {
+
     /**
      * Handle an incoming request.
      *
@@ -36,7 +37,7 @@ class OAuthExceptionHandlerMiddleware
             $response = $next($request);
             // Was an exception thrown? If so and available catch in our middleware
             if (isset($response->exception) && $response->exception) {
-                throw $response->exception;
+                abort("500", $response->exception);
             }
 
             return $response;
@@ -49,4 +50,5 @@ class OAuthExceptionHandlerMiddleware
             return new JsonResponse($data, $e->httpStatusCode, $e->getHttpHeaders());
         }
     }
+
 }
