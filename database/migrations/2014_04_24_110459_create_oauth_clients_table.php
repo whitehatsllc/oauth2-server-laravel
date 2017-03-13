@@ -1,25 +1,11 @@
 <?php
 
-/*
- * This file is part of OAuth 2.0 Laravel.
- *
- * (c) Luca Degasperi <packages@lucadegasperi.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Migrations\Migration;
 
-/**
- * This is the create oauth client table migration class.
- *
- * @author Luca Degasperi <packages@lucadegasperi.com>
- */
 class CreateOauthClientsTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -27,13 +13,18 @@ class CreateOauthClientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('oauth_clients', function (BluePrint $table) {
+        Schema::create('mah_oauth_clients', function (BluePrint $table) {
             $table->string('id', 40)->primary();
             $table->string('secret', 40);
             $table->string('name');
             $table->timestamps();
 
             $table->unique(['id', 'secret']);
+        });
+
+        Schema::table('mah_oauth_clients', function ($table) {
+            $table->renameColumn('created_at', 'createdAt');
+            $table->renameColumn('updated_at', 'updatedAt');
         });
     }
 
@@ -44,6 +35,7 @@ class CreateOauthClientsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('oauth_clients');
+        Schema::drop('mah_oauth_clients');
     }
+
 }

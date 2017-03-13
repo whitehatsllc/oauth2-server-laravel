@@ -1,25 +1,11 @@
 <?php
 
-/*
- * This file is part of OAuth 2.0 Laravel.
- *
- * (c) Luca Degasperi <packages@lucadegasperi.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Migrations\Migration;
 
-/**
- * This is the create oauth sessions table migration class.
- *
- * @author Luca Degasperi <packages@lucadegasperi.com>
- */
 class CreateOauthSessionsTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -27,20 +13,24 @@ class CreateOauthSessionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('oauth_sessions', function (Blueprint $table) {
+        Schema::create('mah_oauth_sessions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('client_id', 40);
-            $table->enum('owner_type', ['client', 'user'])->default('user');
-            $table->string('owner_id');
-            $table->string('client_redirect_uri')->nullable();
+            $table->string('clientId', 40);
+            $table->string('ownerType')->default('user');
+            $table->string('ownerId');
+            $table->string('clientRedirectUri')->nullable();
             $table->timestamps();
 
-            $table->index(['client_id', 'owner_type', 'owner_id']);
+            $table->index(['clientId', 'ownerType', 'ownerId']);
 
-            $table->foreign('client_id')
-                ->references('id')->on('oauth_clients')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            $table->foreign('clientId')
+                    ->references('id')->on('mah_oauth_clients')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
+        });
+        Schema::table('mah_oauth_sessions', function ($table) {
+            $table->renameColumn('created_at', 'createdAt');
+            $table->renameColumn('updated_at', 'updatedAt');
         });
     }
 
@@ -51,9 +41,10 @@ class CreateOauthSessionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('oauth_sessions', function (Blueprint $table) {
-            $table->dropForeign('oauth_sessions_client_id_foreign');
+        Schema::table('mah_oauth_sessions', function (Blueprint $table) {
+            $table->dropForeign('mah_oauth_sessions_clientId_foreign');
         });
-        Schema::drop('oauth_sessions');
+        Schema::drop('mah_oauth_sessions');
     }
+
 }

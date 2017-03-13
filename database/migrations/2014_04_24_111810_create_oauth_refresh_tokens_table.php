@@ -1,25 +1,11 @@
 <?php
 
-/*
- * This file is part of OAuth 2.0 Laravel.
- *
- * (c) Luca Degasperi <packages@lucadegasperi.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Migrations\Migration;
 
-/**
- * This is the create oauth refresh tokens table migration class.
- *
- * @author Luca Degasperi <packages@lucadegasperi.com>
- */
 class CreateOauthRefreshTokensTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -27,16 +13,20 @@ class CreateOauthRefreshTokensTable extends Migration
      */
     public function up()
     {
-        Schema::create('oauth_refresh_tokens', function (Blueprint $table) {
+        Schema::create('mah_oauth_refresh_tokens', function (Blueprint $table) {
             $table->string('id', 40)->unique();
-            $table->string('access_token_id', 40)->primary();
-            $table->integer('expire_time');
+            $table->string('accessTokenId', 40)->primary();
+            $table->integer('expireTime');
 
             $table->timestamps();
 
-            $table->foreign('access_token_id')
-                  ->references('id')->on('oauth_access_tokens')
-                  ->onDelete('cascade');
+            $table->foreign('accessTokenId')
+                    ->references('id')->on('mah_oauth_access_tokens')
+                    ->onDelete('cascade');
+        });
+        Schema::table('mah_oauth_refresh_tokens', function ($table) {
+            $table->renameColumn('created_at', 'createdAt');
+            $table->renameColumn('updated_at', 'updatedAt');
         });
     }
 
@@ -47,10 +37,10 @@ class CreateOauthRefreshTokensTable extends Migration
      */
     public function down()
     {
-        Schema::table('oauth_refresh_tokens', function (Blueprint $table) {
-            $table->dropForeign('oauth_refresh_tokens_access_token_id_foreign');
+        Schema::table('mah_oauth_refresh_tokens', function (Blueprint $table) {
+            $table->dropForeign('mah_oauth_refresh_tokens_accessTokenId_foreign');
         });
-
-        Schema::drop('oauth_refresh_tokens');
+        Schema::drop('mah_oauth_refresh_tokens');
     }
+
 }

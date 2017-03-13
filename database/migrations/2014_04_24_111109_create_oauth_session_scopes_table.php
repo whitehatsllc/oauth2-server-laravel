@@ -1,25 +1,11 @@
 <?php
 
-/*
- * This file is part of OAuth 2.0 Laravel.
- *
- * (c) Luca Degasperi <packages@lucadegasperi.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Migrations\Migration;
 
-/**
- * This is the create oauth session scopes table migration class.
- *
- * @author Luca Degasperi <packages@lucadegasperi.com>
- */
 class CreateOauthSessionScopesTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -27,23 +13,28 @@ class CreateOauthSessionScopesTable extends Migration
      */
     public function up()
     {
-        Schema::create('oauth_session_scopes', function (Blueprint $table) {
+        Schema::create('mah_oauth_session_scopes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('session_id')->unsigned();
-            $table->string('scope_id', 40);
+            $table->integer('sessionId')->unsigned();
+            $table->string('scopeId', 40);
 
             $table->timestamps();
 
-            $table->index('session_id');
-            $table->index('scope_id');
+            $table->index('sessionId');
+            $table->index('scopeId');
 
-            $table->foreign('session_id')
-                  ->references('id')->on('oauth_sessions')
-                  ->onDelete('cascade');
+            $table->foreign('sessionId')
+                    ->references('id')->on('mah_oauth_sessions')
+                    ->onDelete('cascade');
 
-            $table->foreign('scope_id')
-                  ->references('id')->on('oauth_scopes')
-                  ->onDelete('cascade');
+            $table->foreign('scopeId')
+                    ->references('id')->on('mah_oauth_scopes')
+                    ->onDelete('cascade');
+        });
+
+        Schema::table('mah_oauth_session_scopes', function ($table) {
+            $table->renameColumn('created_at', 'createdAt');
+            $table->renameColumn('updated_at', 'updatedAt');
         });
     }
 
@@ -54,10 +45,11 @@ class CreateOauthSessionScopesTable extends Migration
      */
     public function down()
     {
-        Schema::table('oauth_session_scopes', function (Blueprint $table) {
-            $table->dropForeign('oauth_session_scopes_session_id_foreign');
-            $table->dropForeign('oauth_session_scopes_scope_id_foreign');
+        Schema::table('mah_oauth_session_scopes', function (Blueprint $table) {
+            $table->dropForeign('mah_oauth_session_scopes_sessionId_foreign');
+            $table->dropForeign('mah_oauth_session_scopes_scopeId_foreign');
         });
-        Schema::drop('oauth_session_scopes');
+        Schema::drop('mah_oauth_session_scopes');
     }
+
 }
