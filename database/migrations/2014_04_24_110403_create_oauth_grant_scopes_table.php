@@ -16,7 +16,7 @@ class CreateOauthGrantScopesTable extends Migration
         Schema::create('mah_oauth_grant_scopes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('grantId', 40);
-            $table->string('scopeId', 40);
+            $table->string('scopeId', 255);
 
             $table->timestamps();
 

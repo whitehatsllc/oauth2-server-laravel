@@ -16,7 +16,7 @@ class CreateOauthAccessTokenScopesTable extends Migration
         Schema::create('mah_oauth_access_token_scopes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('accessTokenId', 40);
-            $table->string('scopeId', 40);
+            $table->string('scopeId', 255);
 
             $table->timestamps();
 
