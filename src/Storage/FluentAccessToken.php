@@ -72,7 +72,7 @@ class FluentAccessToken extends AbstractFluentAdapter implements AccessTokenInte
      *
      * @return array Array of \Whitehatsleague\OAuth2\Server\Entity\ScopeEntity
      */
-    public function getScopes(AccessTokenEntity $token)
+    public function getScopes(AccessTokenEntity $token, $clientId)
     {
         $result = $this->getConnection()->table('mah_oauth_client_scopes')
                 ->select('mah_oauth_scopes.*')
