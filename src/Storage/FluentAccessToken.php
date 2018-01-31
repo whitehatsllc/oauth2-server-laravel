@@ -74,10 +74,10 @@ class FluentAccessToken extends AbstractFluentAdapter implements AccessTokenInte
      */
     public function getScopes(AccessTokenEntity $token)
     {
-        $result = $this->getConnection()->table('mah_oauth_access_token_scopes')
+        $result = $this->getConnection()->table('mah_oauth_client_scopes')
                 ->select('mah_oauth_scopes.*')
-                ->join('mah_oauth_scopes', 'mah_oauth_access_token_scopes.scopeId', '=', 'mah_oauth_scopes.id')
-                ->where('mah_oauth_access_token_scopes.accessTokenId', $token->getId())
+                ->join('mah_oauth_scopes', 'mah_oauth_client_scopes.scopeId', '=', 'mah_oauth_scopes.id')
+                ->where('mah_oauth_client_scopes.clientId', $clientId)
                 ->get();
 
         $scopes = [];

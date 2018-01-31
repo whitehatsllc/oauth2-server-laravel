@@ -102,7 +102,7 @@ class Authorizer
         $accessToken = $this->getChecker()->getAccessToken();
 
         if (is_null($accessToken)) {
-            abort("500",'Tried to access session data without an active access token');
+            abort("500", 'Tried to access session data without an active access token');
         }
 
         return $accessToken;
@@ -253,7 +253,7 @@ class Authorizer
             return true;
         }
 
-        return $this->getAccessToken()->hasScope($scope);
+        return $this->getAccessToken()->hasScope($scope, $this->getClientId());
     }
 
     /**
